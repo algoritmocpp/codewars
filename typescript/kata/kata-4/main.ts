@@ -1,15 +1,16 @@
-export function solution(roman: string): number {
-  type Roman = {
-    I: number;
-    V: number;
-    X: number;
-    L: number;
-    C: number;
-    D: number;
-    M: number;
-  };
+type Roman<T> = {
+  [key: string]: T;
+  I: T;
+  V: T;
+  X: T;
+  L: T;
+  C: T;
+  D: T;
+  M: T;
+};
 
-  const value: Roman = {
+const romanValue = (letter: string): number => {
+  const values: Roman<number> = {
     I: 1,
     V: 5,
     X: 10,
@@ -18,6 +19,15 @@ export function solution(roman: string): number {
     D: 500,
     M: 1000,
   };
+  return values[letter];
+};
 
-  return 0;
+export function solution(roman: string): number {
+  const romanNumbers: Array<number> = roman
+    .split("")
+    .map((letter: string) => romanValue(letter));
+
+  // const result = romanNumbers.reduce((acc, curr) => {});
+
+  return result;
 }
