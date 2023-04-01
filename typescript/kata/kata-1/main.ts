@@ -1,3 +1,8 @@
 export function countSheeps(arrayOfSheep: (boolean | undefined | null)[]) {
-  // your code here
+  let sheepCount = 0;
+  arrayOfSheep.forEach((sheep) => {
+    if (typeof sheep === "boolean" && sheep) sheepCount++;
+  });
+
+  return sheepCount;
 }
