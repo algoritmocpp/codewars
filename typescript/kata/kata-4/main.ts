@@ -27,7 +27,11 @@ export function solution(roman: string): number {
     .split("")
     .map((letter: string) => romanValue(letter));
 
-  // const result = romanNumbers.reduce((acc, curr) => {});
+  const result = romanNumbers.reduce((acc, curr, index) => {
+    console.log(acc, curr);
+
+    return acc + curr;
+  });
 
   return result;
 }
