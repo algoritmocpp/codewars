@@ -27,10 +27,9 @@ export function solution(roman: string): number {
     .split("")
     .map((letter: string) => romanValue(letter));
 
-  const result = romanNumbers.reduce((acc, curr, index) => {
-    console.log(acc, curr);
-
-    return acc + curr;
+  const result = romanNumbers.reduce((acc, curr, currIndex) => {
+    if (currIndex === 1 && acc < curr) return curr - acc;
+    return curr < romanNumbers[currIndex + 1] ? acc - curr : acc + curr;
   });
 
   return result;
